@@ -1,31 +1,43 @@
-#three cup monte game
+# three cup monte game
 from random import shuffle
-mylist=[' ','0',' ']
-def shuffle_list(mylist):
+
+mylist = [' ', '0', ' ']
+
+
+def shuffle_list(mylist):  # take in list, and returned shuffled list
     shuffle(mylist)
-    
-    return(mylist)
+
+    return (mylist)
+
 
 def player_guess():
-    
-    guess=''
-    
-    while guess not in ['0','1','2']:
-        
-        guess=input("pick a numb:0,1, or 2:")
-        
+    guess = ''
+
+    while guess not in ['0', '1', '2']:
+        guess = input("pick a numb:0,1, or 2:")
+
     return int(guess)
 
-def check_guess(mylist,guess):
-    if mylist[guess]=='0':
-        print('correct')
+
+def check_guess(mylist, guess):  # checking user's guess
+    if mylist[guess] == '0':
+        print('correct guess!')  # we only print here bc we have no need to save a user's gyess or the shuffled list
     else:
         print('wrong guess')
         print(mylist)
-mylist=[' ','0',' ']
 
-mixedup_list=shuffle_list(mylist)
 
-guess=player_guess()
+# now we create a little setup logic to run all the functions.
 
-check_guess(mixedup_list,guess)
+# initial list
+mylist = [' ', '0', ' ']
+
+# shuffle list
+mixedup_list = shuffle_list(mylist)
+
+# get user's guess
+guess = player_guess()
+
+# check user's guess
+# this function takes in the input based on the output of other functions
+check_guess(mixedup_list, guess)
